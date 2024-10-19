@@ -1,0 +1,11 @@
+services:
+  db:
+    image: mariadb:11.5.2
+    container_name: specdb
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: specdb
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db/init-schema.sql:/docker-entrypoint-initdb.d/1-init.sql
