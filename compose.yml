@@ -10,3 +10,6 @@ services:
     volumes:
       - ./db/1-init-schema.sql:/docker-entrypoint-initdb.d/1-schema.sql
       - ./db/2-insert-data.sql:/docker-entrypoint-initdb.d/2-data.sql
+      - ./db/3-update-schema.sql:/docker-entrypoint-initdb.d/3-update-schema.sql
+      - ./db/4-insert-data.sql:/docker-entrypoint-initdb.d/4-insert-data.sql
+      - ./db/5-queries.sql:/docker-entrypoint-initdb.d/5-queries.sql
