@@ -1,6 +1,7 @@
 
 <?php 
 
+  // Edit before local usage
 	$host = 'localhost';
 	$user = '';
 	$pass = '';

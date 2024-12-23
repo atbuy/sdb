@@ -1,4 +1,11 @@
 services:
+  php:
+    image: php:apache
+    ports:
+      - "8080:80"
+    volumes:
+      - ./site/:/var/www/html
+
   db:
     image: mariadb:11.5.2
     container_name: specdb
