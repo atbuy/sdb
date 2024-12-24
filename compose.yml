@@ -1,6 +1,8 @@
 services:
   php:
-    image: php:apache
+    container_name: web
+    build:
+      context: .
     ports:
       - "8080:80"
     volumes:
