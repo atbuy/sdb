@@ -1,0 +1,69 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: rgb(39 39 42 / var(--tw-bg-opacity, 1));
+  color: white
+}
+
+
+.action-button.update::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  border-radius: 5px;
+  border: 3px solid transparent;
+  /* background: linear-gradient(45deg, #d97934, #d6ba2b) border-box; */
+  background: linear-gradient(45deg, #424242, #d97934) border-box;
+  mask:
+    linear-gradient(#000 0 0) padding-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+
+  width: 35px;
+  height: 35px;
+}
+
+.action-button.delete::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  border-radius: 5px;
+  border: 3px solid transparent;
+  /* background: linear-gradient(45deg, #f53b47, #9624d4) border-box; */
+  background: linear-gradient(45deg, #424242 10%, #f53b47) border-box;
+  mask:
+    linear-gradient(#000 0 0) padding-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+
+  width: 35px;
+  height: 35px;
+}
+
+.action-button {
+  margin: 0px 15px;
+  position: relative;
+}
+
+.action-button.update {
+  /* fill: #fa9837; */
+}
+
+.action-button.delete {
+  /* fill: #fa3737; */
+}
+
+.action-icon {
+  width: 18px;
+  height: 18px;
+  fill: white;
+  transform: translateX(50%) translateY(40%);
+}
