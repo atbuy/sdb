@@ -16,8 +16,8 @@
 
       <!-- Table title -->
       <div class="rounded-t-lg flex justify-center items-center">
-        <span class="text-xl py-4 px-2 font-semibold">
-          Mathima
+        <span class="text-2xl py-4 px-2 font-semibold">
+          MATHIMA
         </span>
       </div>
 
@@ -34,7 +34,7 @@
         </thead>
         <tbody>
           <!-- Load all rows from the "Mathima" table -->
-          <?php include 'mathima_rows.php' ?>
+          <?php include 'mathima/mathima_rows.php' ?>
         </tbody>
       </table>
     </div>
