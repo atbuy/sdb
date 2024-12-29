@@ -4,6 +4,7 @@
   include "./components/icons/delete.php";
   include "./components/icons/save.php";
   include "./components/icons/cancel.php";
+  include "./components/icons/add.php";
 ?>
 
 <!DOCTYPE html>
@@ -110,6 +111,13 @@
           </template>
         </tbody>
       </table>
+
+      <button class="p-3 m-4 bg-green-500 rounded-lg">
+        <div class="flex justify-between items-center">
+          <span class="mx-4">Insert row</span>
+          <span class="w-4 fill-white"><?php echo $ADD_ICON ?></span>
+        </div>
+      </button>
     </div>
     
     <script src="static/js/main.js"></script>
