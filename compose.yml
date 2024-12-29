@@ -6,7 +6,7 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./site/:/var/www/html
+      - ./site:/var/www/html
 
   db:
     image: mariadb:11.5.2

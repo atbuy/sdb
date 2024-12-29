@@ -51,6 +51,7 @@ body {
 .action-button {
   margin: 0px 15px;
   position: relative;
+  text-decoration: none;
 }
 
 .action-button.update {

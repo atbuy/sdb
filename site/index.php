@@ -1,3 +1,9 @@
+<?php 
+  include "./mathima/select.php";
+  include "./components/icons/edit.php";
+  include "./components/icons/delete.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,7 +18,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <title>Team 19 - DB</title>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
   </head>
+
   <body>
     <div class="flex flex-col p-6 justify-center items-center">
 
@@ -34,13 +43,34 @@
             <th class="px-3 py-4 rounded-tr-lg">Action</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody x-data='{ rows: <?php echo $MATHIMA_DATA ?> }'>
+          <template x-for="row in rows" :key="row.id">
+            <tr>
+              <td class="px-3 py-4 text-rose-600 font-semibold" x-text="row.id"></td>
+              <td class="px-3 py-4 text-green-400" x-text="row.name"></td>
+              <td class="px-3 py-4 text-rose-600 font-semibold" x-text="row.active_year"></td>
+              <td class="px-3 py-4 text-blue-400" x-text="row.school_category"></td>
+              <td class="px-3 py-4 flex justify-around items-center">
+                <div>
+                  <button class="action-button update" onclick="editMathima(this)" :data-rowID="row.id">
+                    <?php echo $EDIT_ICON ?>
+                  </button>
+                </div>
+                <div>
+                  <button class="action-button delete" onclick="deleteMathima(this)" :data-rowID="row.id">
+                    <?php echo $DELETE_ICON ?>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </template>
+          
           <!-- Load all rows from the "Mathima" table -->
-          <?php include 'mathima/mathima_rows.php' ?>
         </tbody>
       </table>
     </div>
-
+    
     <script src="static/js/main.js"></script>
+
   </body>
 </html>

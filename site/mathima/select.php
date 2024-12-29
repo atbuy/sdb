@@ -2,7 +2,7 @@
 
   include 'connect.php';
 
-  $query = "SELECT id, name, active_year, school_category FROM MATHIMA;";
+  $query = "SELECT id, name, active_year, school_category FROM MATHIMA ma ORDER BY ma.id ASC;";
   $result = mysqli_query($conn, $query) or die("Could not connect to database.");
 
   $all_properties = array();

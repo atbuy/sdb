@@ -1,7 +1,9 @@
-const editMathima = (rowID) => {
-  console.log("update", rowID);
-}
+const editMathima = (elem) => {
+  console.log("update", elem);
+};
 
-const deleteMathima = (rowID) => {
-  console.log("delete", rowID);
-}
+const deleteMathima = (elem) => {
+  console.log("delete", elem)
+};
+
+
