@@ -6,6 +6,10 @@ body {
   height: 100%;
 }
 
+input {
+  outline: none;
+}
+
 body {
   background-color: rgb(39 39 42 / var(--tw-bg-opacity, 1));
   color: white
@@ -48,18 +52,53 @@ body {
   height: 35px;
 }
 
+.action-button.save::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  border-radius: 5px;
+  border: 3px solid transparent;
+  /* background: linear-gradient(45deg, #f53b47, #9624d4) border-box; */
+  background: linear-gradient(215deg, #424242, #53db2a) border-box;
+  /* background-color: #00aa00; */
+  mask:
+    linear-gradient(#000 0 0) padding-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+
+  width: 35px;
+  height: 35px;
+}
+
+.action-button.cancel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  border-radius: 5px;
+  border: 3px solid transparent;
+  /* background: linear-gradient(45deg, #f53b47, #9624d4) border-box; */
+  background: linear-gradient(215deg, #424242, #e83d23) border-box;
+  /* background-color: #bb0000; */
+  mask:
+    linear-gradient(#000 0 0) padding-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+
+  width: 35px;
+  height: 35px;
+}
+
 .action-button {
   margin: 0px 15px;
   position: relative;
   text-decoration: none;
+  transition: transform 200ms ease-in-out;
 }
 
-.action-button.update {
-  /* fill: #fa9837; */
-}
-
-.action-button.delete {
-  /* fill: #fa3737; */
+.action-button:hover {
+  transform: scale(1.1);
 }
 
 .action-icon {
