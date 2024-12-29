@@ -60,7 +60,7 @@
                   :data-mathima-input="row.id"
                   data-mathima-input-key="name"
                 />
-                <span x-show="!editing" x-text="row.name"></span>
+                <span x-show="!editing" x-text="row.name" data-mathima-value-key="name"></span>
               </td>
               <td class="px-3 py-4 text-rose-600 font-semibold">
                 <input
@@ -73,7 +73,7 @@
                   :data-mathima-input="row.id"
                   data-mathima-input-key="active_year"
                 />
-                <span x-show="!editing" x-text="row.active_year"></span>
+                <span x-show="!editing" x-text="row.active_year" data-mathima-value-key="active_year"></span>
               </td>
               <td class="px-3 py-4 text-blue-400" x-text="row.school_category"></td>
               <td class="px-3 py-4 flex justify-around items-center" x-show="!editing">
@@ -93,6 +93,7 @@
                   <button
                     class="action-button save"
                     onclick="editMathimaSave(this)"
+                    x-on:click="toggleEdit()"
                     :data-rowID="row.id"
                   >
                     <?php echo $SAVE_ICON ?>

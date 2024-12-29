@@ -20,6 +20,21 @@ const editMathimaSave = (elem) => {
 
     if (request.status === 200) {
       toastSuccess("Data updated successfully.");
+
+      // Since the request was successful, we need to update
+      // the row data in the `span`s, so that the user does not
+      // need to refresh the page after each save
+      inputs.forEach((input) => {
+        const key = input.dataset.mathimaInputKey;
+        const elem = document.querySelector(
+          `[data-mathima-value-key="${key}"]`,
+        );
+
+        if (!elem) return;
+
+        elem.innerHTML = data[key];
+      });
+
       return;
     }
 
