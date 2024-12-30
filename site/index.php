@@ -166,7 +166,7 @@
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
 
-    <script src="static/js/main.js"></script>
+    <script src="static/js/mathima.js"></script>
     <script src="static/js/toasts.js"></script>
     <script src="static/js/tooltips.js"></script>
 
