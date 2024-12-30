@@ -1,4 +1,8 @@
-const editMathimaSave = (elem) => {
+const insertMathima = (elem) => {
+  console.log(elem);
+};
+
+const editMathima = (elem) => {
   const rowID = parseInt(elem.dataset.rowid);
   const inputs = document.querySelectorAll(`[data-mathima-input="${rowID}"]`);
 
