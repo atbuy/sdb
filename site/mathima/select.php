@@ -10,13 +10,6 @@
     array_push($all_properties, $property->name);
   }
 
-  $item_styles = array();
-  $item_styles["id"] = "text-rose-600 font-semibold";
-  $item_styles["name"] = "text-green-400";
-  $item_styles["active_year"] = "text-rose-600 font-semibold";
-  $item_styles["school_category"] = "text-blue-400";
-
-
   $response = array();
   while($row = mysqli_fetch_array($result)) {
     $row_data = new stdClass();
