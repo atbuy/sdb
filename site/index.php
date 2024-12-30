@@ -1,10 +1,12 @@
 <?php 
   include "./mathima/select.php";
-  include "./components/icons/edit.php";
-  include "./components/icons/delete.php";
-  include "./components/icons/save.php";
-  include "./components/icons/cancel.php";
+  include "./components/icons/edit_action.php";
+  include "./components/icons/delete_action.php";
+  include "./components/icons/save_action.php";
+  include "./components/icons/cancel_action.php";
   include "./components/icons/add.php";
+  include "./components/icons/cancel.php";
+  include "./components/icons/question.php";
 ?>
 
 <!DOCTYPE html>
@@ -69,8 +71,6 @@
                   type="number"
                   :value="row.active_year"
                   x-show="editing"
-                  min="0"
-                  max="99"
                   :data-mathima-input="row.id"
                   data-mathima-input-key="active_year"
                 />
@@ -80,12 +80,12 @@
               <td class="px-3 py-4 flex justify-around items-center" x-show="!editing">
                 <div>
                   <button class="action-button update" x-on:click="toggleEdit()">
-                    <?php echo $EDIT_ICON ?>
+                    <?php echo $EDIT_ACTION_ICON ?>
                   </button>
                 </div>
                 <div>
                   <button class="action-button delete" onclick="deleteMathima(this)" :data-rowID="row.id">
-                    <?php echo $DELETE_ICON ?>
+                    <?php echo $DELETE_ACTION_ICON ?>
                   </button>
                 </div>
               </td>
@@ -93,16 +93,16 @@
                 <div>
                   <button
                     class="action-button save"
-                    onclick="editMathimaSave(this)"
+                    onclick="editMathima(this)"
                     x-on:click="toggleEdit()"
                     :data-rowID="row.id"
                   >
-                    <?php echo $SAVE_ICON ?>
+                    <?php echo $SAVE_ACTION_ICON ?>
                   </button>
                 </div>
                 <div>
                   <button class="action-button cancel" x-on:click="toggleEdit()">
-                    <?php echo $CANCEL_ICON ?>
+                    <?php echo $CANCEL_ACTION_ICON ?>
                   </button>
                 </div>
               </td>
@@ -112,16 +112,63 @@
         </tbody>
       </table>
 
-      <button class="p-3 m-4 bg-green-500 rounded-lg">
-        <div class="flex justify-between items-center">
-          <span class="mx-4">Insert row</span>
-          <span class="w-4 fill-white"><?php echo $ADD_ICON ?></span>
-        </div>
-      </button>
+      <div class="my-4 flex flex-col items-center" x-data="{ inserting: false, toggleInsert() { this.inserting = !this.inserting } }">
+        <table x-transition class="bg-zinc-900 rounded-lg table-auto text-left shadow-lg" x-show="inserting">
+          <thead>
+            <tr class="bg-zinc-950">
+              <th class="px-3 py-4 rounded-tl-lg">ID</th>
+              <th class="px-3 py-4">Name</th>
+              <th class="px-3 py-4">Active Year</th>
+              <th class="px-3 py-4">School Category</th>
+              <th class="px-3 py-4 rounded-tr-lg">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="insertMathimaRow">
+              <td class="px-3 py-4 text-rose-600 font-semibold">
+                <span class="font-semibold fill-rose-600" id="mathimaIDInfo">
+                  <?php echo $QUESTION_ICON ?>
+                </span>
+              </td>
+              <td class="px-3 py-4 text-green-400">
+                <input class="border-b-2 border-white bg-transparent" type="text" />
+              </td>
+              <td class="px-3 py-4 text-rose-600 font-semibold">
+                <input class="border-b-2 border-white bg-transparent" type="number" />
+              </td>
+              <td class="px-3 py-4 text-blue-400">
+                <input class="border-b-2 border-white bg-transparent" type="text" oninput="this.value = this.value.toUpperCase()" />
+              </td>
+              <td class="px-3 py-4 flex justify-center items-center">
+                <button class="bg-green-500 rounded-lg" onclick="insertMathima('insertMathimaRow')">
+                  <?php echo $ADD_ICON ?>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button class="p-3 m-4 bg-green-500 rounded-lg" x-show="!inserting" x-on:click="toggleInsert()">
+          <div class="flex justify-between items-center">
+            <span class="mx-4">Insert row</span>
+            <span class="mr-3 w-4 fill-white"><?php echo $ADD_ICON ?></span>
+          </div>
+        </button>
+        <button class="p-3 m-4 bg-red-500 rounded-lg" x-show="inserting" x-on:click="toggleInsert()">
+          <div class="flex justify-between items-center">
+            <span class="mx-4">Cancel</span>
+            <span class="mr-3 w-4 fill-white"><?php echo $CANCEL_ICON ?></span>
+          </div>
+        </button>
+      </div>
     </div>
-    
+
+    <!-- Tippy for tooltips  -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+
     <script src="static/js/main.js"></script>
     <script src="static/js/toasts.js"></script>
+    <script src="static/js/tooltips.js"></script>
 
     <!-- Toastify notifications -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
