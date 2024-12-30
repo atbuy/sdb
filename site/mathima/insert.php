@@ -1,7 +1,7 @@
 <?php
 
-  // Only allow PATCH requests
-  if ($_SERVER["REQUEST_METHOD"] != "PATCH") {
+  // Only allow POST requests
+  if ($_SERVER["REQUEST_METHOD"] != "POST") {
     http_response_code(405);
     exit();
   }
@@ -12,18 +12,22 @@
   $data = json_decode(file_get_contents("php://input"), true);
 
   // Unpack data from JSON body
-  $row_id = $data["id"];
   $row_name = $data["name"];
   $row_active_year = $data["active_year"];
+  $row_school_category = $data["school_category"];
 
-  // Update the given MATHIMA row with the new values
-  $query = $conn->prepare("UPDATE MATHIMA SET name=?, active_year=? WHERE id=?");
+  // Insert row to MATHIMA table
+  $query = $conn->prepare("INSERT INTO MATHIMA (name, active_year, school_category) VALUES (?, ?, ?)");
   $query->bind_param(
-    "sii",
+    "sis",
     $row_name,
     $row_active_year,
-    $row_id
+    $row_school_category,
   );
   $query->execute();
   $query->close();
 ?>
+
+
+
+

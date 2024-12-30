@@ -1,15 +1,19 @@
 <?php
 
+  // Only allow GET requests
+  if ($_SERVER["REQUEST_METHOD"] != "GET") {
+    http_response_code(405);
+    exit();
+  }
+
   include 'connect.php';
 
+  // Get all rows from the MATHIMA table
   $query = "SELECT id, name, active_year, school_category FROM MATHIMA ma ORDER BY ma.id ASC;";
   $result = mysqli_query($conn, $query) or die("Could not connect to database.");
 
-  $all_properties = array();
-  while ($property = mysqli_fetch_field($result)) {
-    array_push($all_properties, $property->name);
-  }
-
+  // Iterate over each row and push the data to a hashmap,
+  // so that it can be returned to JS
   $response = array();
   while($row = mysqli_fetch_array($result)) {
     $row_data = new stdClass();
