@@ -6,7 +6,7 @@
     exit();
   }
 
-  include 'connect.php';
+  include '../connect.php';
 
   // Get all rows from the MATHIMA table
   $query = "SELECT id, name, active_year, school_category FROM MATHIMA ma ORDER BY ma.id ASC;";

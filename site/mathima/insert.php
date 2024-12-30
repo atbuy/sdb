@@ -6,7 +6,7 @@
     exit();
   }
 
-  include "connect.php";
+  include "../connect.php";
 
   // Read JSON data from JS request
   $data = json_decode(file_get_contents("php://input"), true);
