@@ -1,5 +1,41 @@
-const insertMathima = (elem) => {
-  console.log(elem);
+const insertMathima = (elemID) => {
+  // Get input tags from insert row
+  const row = document.getElementById(elemID);
+  const inputs = row.getElementsByTagName("input");
+
+  // Format JSON data
+  let data = {};
+  for (let elem of inputs) {
+    data[elem.dataset.insertKey] = elem.value;
+  }
+
+  const payload = JSON.stringify(data);
+
+  // Start new AJAX request
+  const request = new XMLHttpRequest();
+
+  // Refresh page when a new row is successfully inserted
+  request.onreadystatechange = () => {
+    if (request.readyState !== XMLHttpRequest.DONE) return;
+
+    if (request.status === 200) {
+      toastSuccess("New row inserted successfully.");
+      window.location.reload();
+      return;
+    }
+
+    if (request.status === 400) {
+      toastError("Smoe values you gave are incorrect.");
+      return;
+    }
+
+    toastError("Something went wrong.");
+  }
+
+  // Set options and send request to update.php
+  request.open("POST", "/mathima/insert.php", true);
+  request.setRequestHeader("Content-Type", "application/json");
+  request.send(payload);
 };
 
 const editMathima = (elem) => {

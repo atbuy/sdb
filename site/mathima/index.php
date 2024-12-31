@@ -126,21 +126,21 @@
           <tbody>
             <tr id="insertMathimaRow">
               <td class="px-3 py-4 text-rose-600 font-semibold">
-                <span class="font-semibold fill-rose-600" id="mathimaIDInfo">
+                <span class="cursor-help font-semibold fill-rose-600" id="mathimaIDInfo">
                   <?php echo $QUESTION_ICON ?>
                 </span>
               </td>
               <td class="px-3 py-4 text-green-400">
-                <input class="border-b-2 border-white bg-transparent" type="text" />
+                <input class="border-b-2 border-white bg-transparent" type="text" data-insert-key="name" />
               </td>
               <td class="px-3 py-4 text-rose-600 font-semibold">
-                <input class="border-b-2 border-white bg-transparent" type="number" />
+                <input class="border-b-2 border-white bg-transparent" type="number" data-insert-key="active_year" />
               </td>
               <td class="px-3 py-4 text-blue-400">
-                <input class="border-b-2 border-white bg-transparent" type="text" oninput="this.value = this.value.toUpperCase()" />
+                <input class="border-b-2 border-white bg-transparent" type="text" oninput="this.value = this.value.toUpperCase()" data-insert-key="school_category" />
               </td>
               <td class="px-3 py-4 flex justify-center items-center">
-                <button class="bg-green-500 rounded-lg" onclick="insertMathima('insertMathimaRow')">
+                <button id="insertMathimaButtonInfo" class="p-1 bg-green-500 rounded-md fill-white" onclick="insertMathima('insertMathimaRow')">
                   <?php echo $ADD_ICON ?>
                 </button>
               </td>
