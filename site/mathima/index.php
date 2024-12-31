@@ -16,6 +16,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Team 19 - DB</title>
+
     <link rel="icon" href="/static/images/rounded_icon.png" />
 
     <link rel="stylesheet" href="/static/css/main.css" />
@@ -25,8 +27,6 @@
 
     <!-- Add Toastify styles for toast type notifications -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-
-    <title>Team 19 - DB</title>
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
   </head>
@@ -164,7 +164,7 @@
     </div>
 
 
-    <a href="/" class="bg-zinc-900 p-4 fixed left-4 bottom-4 rounded-full">
+    <a href="/" class="bg-zinc-900 shadow-lg p-4 fixed left-4 bottom-4 rounded-full">
       <span class="fill-white"><?php echo $HOME_ICON ?></span>
     </a>
 
@@ -176,11 +176,9 @@
     <!-- Custom scripts -->
     <script src="/static/js/mathima.js"></script>
     <script src="/static/js/toasts.js"></script>
-    <script src="/static/js/tooltips.js"></script>
 
     <!-- Toastify notifications -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-
   </body>
 </html>
 
