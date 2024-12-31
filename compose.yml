@@ -1,6 +1,11 @@
 services:
   php:
     container_name: web
+    depends_on:
+      db:
+        condition: service_healthy
+    links:
+      - db
     build:
       context: .
     ports:
@@ -14,6 +19,12 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: specdb
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      start_period: 5s
+      interval: 5s
+      timeout: 5s
+      retries: 10
     ports:
       - "3306:3306"
     volumes:
