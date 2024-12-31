@@ -7,6 +7,7 @@
   include "../components/icons/add.php";
   include "../components/icons/cancel.php";
   include "../components/icons/question.php";
+  include "../components/icons/home.php";
 ?>
 
 <!DOCTYPE html>
@@ -161,6 +162,12 @@
         </button>
       </div>
     </div>
+
+
+    <a href="/" class="bg-zinc-900 p-4 fixed left-4 bottom-4 rounded-full">
+      <span class="fill-white"><?php echo $HOME_ICON ?></span>
+    </a>
+
 
     <!-- Tippy for tooltips  -->
     <script src="https://unpkg.com/@popperjs/core@2"></script>
