@@ -15,7 +15,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" href="/static/images/icon.png" />
+    <link rel="icon" href="/static/images/rounded_icon.png" />
 
     <link rel="stylesheet" href="/static/css/main.css" />
 
@@ -166,6 +166,7 @@
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
 
+    <!-- Custom scripts -->
     <script src="/static/js/mathima.js"></script>
     <script src="/static/js/toasts.js"></script>
     <script src="/static/js/tooltips.js"></script>
