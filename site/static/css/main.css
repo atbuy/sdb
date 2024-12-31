@@ -12,9 +12,8 @@ input {
 
 body {
   background-color: rgb(39 39 42 / var(--tw-bg-opacity, 1));
-  color: white
+  color: white;
 }
-
 
 .action-button.update::before {
   content: "";
@@ -106,4 +105,13 @@ body {
   height: 18px;
   fill: white;
   transform: translateX(50%) translateY(40%);
+}
+
+.reset-button {
+  color: white;
+  font-weight: bold;
+  background-color: red;
+  border-radius: 2px;
+  padding: 5px 8px;
+  margin: 10px 0px;
 }

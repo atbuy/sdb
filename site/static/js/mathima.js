@@ -25,12 +25,12 @@ const insertMathima = (elemID) => {
     }
 
     if (request.status === 400) {
-      toastError("Smoe values you gave are incorrect.");
+      toastError("Some values you gave are incorrect.");
       return;
     }
 
     toastError("Something went wrong.");
-  }
+  };
 
   // Set options and send request to update.php
   request.open("POST", "/mathima/insert.php", true);
@@ -127,3 +127,19 @@ const deleteMathima = (elem) => {
   request.setRequestHeader("Content-Type", "application/json");
   request.send(payload);
 };
+
+tippy("#mathimaIDInfo", {
+  content: "The row's ID will be<br>generated automatically",
+  placement: "bottom",
+  animation: "fade",
+  delay: [250, 0],
+  allowHTML: true,
+});
+
+tippy("#insertMathimaButtonInfo", {
+  content: "Insert row",
+  placement: "bottom",
+  animation: "fade",
+  delay: [250, 0],
+  allowHTML: false,
+});

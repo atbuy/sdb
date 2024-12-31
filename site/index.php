@@ -1,5 +1,6 @@
 <?php
   include './components/icons/table.php';
+  include './components/icons/reset.php';
 ?>
 
 <!DOCTYPE html>
@@ -12,20 +13,18 @@
 
     <link rel="stylesheet" href="/static/css/main.css" />
 
-    <!-- Add tailwind CDN for styles -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
     <!-- Add Toastify styles for toast type notifications -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 
-    <title>Team 19 - DB2</title>
+    <!-- Add tailwind CDN for styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js"></script>
+    <title>Team 19 - DB2</title>
   </head>
 
   <body>
 
-    <div class="flex py-5 justify-center items-center">
+    <div class="flex py-5 justify-center items-center text-2xl">
       <b>Manage Tables</b>
     </div>
 
@@ -35,6 +34,30 @@
           <span class="mx-2 font-bold">MATHIMA</span>
         </a>
     </div>
+
+    <button id="resetInfo" class="fixed p-4 left-4 bottom-4 fill-red-600" onclick="resetToast()">
+      <?php echo $RESET_ICON ?>
+    </button>
+
+    <!-- Tippy for tooltips  -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+
+    <!-- Custom scripts -->
+    <script src="/static/js/toasts.js"></script>
+    <script src="/static/js/reset.js"></script>
+
+    <!-- Toastify notifications -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <script>
+    tippy("#resetInfo", {
+      content: "Reset database",
+      placement: "right",
+      animation: "fade",
+      delay: [250, 0],
+    })
+    </script>
 
   </body>
 </html>
