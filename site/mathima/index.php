@@ -1,5 +1,5 @@
 <?php 
-  include "select.php";
+  include "./select.php";
   include "../components/icons/edit_action.php";
   include "../components/icons/delete_action.php";
   include "../components/icons/save_action.php";
@@ -18,9 +18,9 @@
 
     <title>Team 19 - DB</title>
 
-    <link rel="icon" href="/static/images/rounded_icon.png" />
+    <link rel="icon" href="../static/images/rounded_icon.png" />
 
-    <link rel="stylesheet" href="/static/css/main.css" />
+    <link rel="stylesheet" href="../static/css/main.css" />
 
     <!-- Add tailwind CDN for styles -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -164,9 +164,9 @@
     </div>
 
 
-    <a href="/" class="bg-zinc-900 shadow-lg p-4 fixed left-4 bottom-4 rounded-full">
+    <button class="bg-zinc-900 shadow-lg p-4 fixed left-4 bottom-4 rounded-full" onclick="goto('')">
       <span class="fill-white"><?php echo $HOME_ICON ?></span>
-    </a>
+    </button>
 
 
     <!-- Tippy for tooltips  -->
@@ -174,8 +174,9 @@
     <script src="https://unpkg.com/tippy.js@6"></script>
 
     <!-- Custom scripts -->
-    <script src="/static/js/mathima.js"></script>
-    <script src="/static/js/toasts.js"></script>
+    <script src="../static/js/main.js"></script>
+    <script src="../static/js/mathima.js"></script>
+    <script src="../static/js/toasts.js"></script>
 
     <!-- Toastify notifications -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>

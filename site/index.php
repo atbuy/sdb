@@ -9,9 +9,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" href="/static/images/icon.png" />
+    <link rel="icon" href="./static/images/icon.png" />
 
-    <link rel="stylesheet" href="/static/css/main.css" />
+    <link rel="stylesheet" href="./static/css/main.css" />
 
     <!-- Add Toastify styles for toast type notifications -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
@@ -29,10 +29,10 @@
     </div>
 
     <div class="py-5 flex justify-center items-center">
-        <a href="/mathima" class="flex justify-center items-center px-6 py-4 mx-6 shadow-lg rounded-lg bg-zinc-900 hover:scale-110 transition-transform">
+        <button class="flex justify-center items-center px-6 py-4 mx-6 shadow-lg rounded-lg bg-zinc-900 hover:scale-110 transition-transform" onclick="goto('mathima')">
           <span class="mr-3 fill-white"><?php echo $TABLE_ICON ?></span>
           <span class="mx-2 font-bold">MATHIMA</span>
-        </a>
+        </button>
     </div>
 
     <button id="resetInfo" class="fixed p-4 left-4 bottom-4 fill-red-600" onclick="resetToast()">
@@ -44,8 +44,9 @@
     <script src="https://unpkg.com/tippy.js@6"></script>
 
     <!-- Custom scripts -->
-    <script src="/static/js/toasts.js"></script>
-    <script src="/static/js/reset.js"></script>
+    <script src="./static/js/main.js"></script>
+    <script src="./static/js/toasts.js"></script>
+    <script src="./static/js/reset.js"></script>
 
     <!-- Toastify notifications -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>

@@ -32,8 +32,12 @@ const insertMathima = (elemID) => {
     toastError("Something went wrong.");
   };
 
+  // Get the endpoint we need to request based on the environment
+  const base = getBasePath();
+  const endpoint = `${base}mathima/insert.php`;
+
   // Set options and send request to update.php
-  request.open("POST", "/mathima/insert.php", true);
+  request.open("POST", endpoint, true);
   request.setRequestHeader("Content-Type", "application/json");
   request.send(payload);
 };
@@ -86,8 +90,12 @@ const editMathima = (elem) => {
     toastError("Something went wrong.");
   };
 
+  // Get the endpoint we need to request based on the environment
+  const base = getBasePath();
+  const endpoint = `${base}mathima/update.php`;
+
   // Set options and send request to update.php
-  request.open("PATCH", "/mathima/update.php", true);
+  request.open("PATCH", endpoint, true);
   request.setRequestHeader("Content-Type", "application/json");
   request.send(payload);
 };
@@ -122,8 +130,12 @@ const deleteMathima = (elem) => {
     toastError("Something went wrong.");
   };
 
+  // Get the endpoint we need to request based on the environment
+  const base = getBasePath();
+  const endpoint = `${base}mathima/delete.php`;
+
   // Set options and send request to update.php
-  request.open("DELETE", "/mathima/delete.php", true);
+  request.open("DELETE", endpoint, true);
   request.setRequestHeader("Content-Type", "application/json");
   request.send(payload);
 };

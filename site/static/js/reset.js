@@ -17,7 +17,11 @@ const resetDatabase = () => {
     toastError(response["message"]);
   };
 
+  // Get the endpoint we need to request based on the environment
+  const base = getBasePath();
+  const endpoint = `${base}reset.php`;
+
   // Set options and send request to reset.php
-  request.open("DELETE", "/reset.php", true);
+  request.open("DELETE", endpoint, true);
   request.send();
 };
