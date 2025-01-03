@@ -93,11 +93,11 @@ body {
   margin: 0px 15px;
   position: relative;
   text-decoration: none;
-  transition: transform 200ms ease-in-out;
+  transition: filter 200ms ease-in-out;
 }
 
 .action-button:hover {
-  transform: scale(1.1);
+  filter: brightness(1.5);
 }
 
 .action-icon {
