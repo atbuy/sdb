@@ -1,4 +1,4 @@
-FROM php:apache AS runtime
+FROM php:7-apache AS runtime
 
 RUN docker-php-ext-install mysqli && \
   docker-php-ext-enable mysqli
