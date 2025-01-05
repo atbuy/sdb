@@ -90,3 +90,19 @@ DELIMITER ;
 
 -- 8.b) Call procedure and update a student's absences
 CALL increase_absence(1, 3);
+
+-- 9.a) Create trigger to set missed_year to true,
+--      in case a student has reached their maximum absences.
+DELIMITER $$
+CREATE TRIGGER update_missed_year
+BEFORE UPDATE ON MATHITIS
+FOR EACH ROW
+BEGIN
+  IF (NEW.absences > 164) THEN
+    SET NEW.missed_year = true;
+  END IF;
+END $$
+DELIMITER ;
+
+-- 9.b) Update MATHITIS to run the trigger
+UPDATE MATHITIS ma SET ma.absences=165 WHERE ma.id=1;

@@ -5,6 +5,7 @@ CREATE TABLE MATHITIS(
   class_year INT NOT NULL,  -- Should be the year the student is on currently.
   school VARCHAR(5) NOT NULL,
   absences INT DEFAULT 0 NOT NULL,
+  missed_year BOOLEAN DEFAULT false NOT NULL,
 
   FOREIGN KEY (school) REFERENCES SXOLEIO(code) ON DELETE CASCADE
 );
