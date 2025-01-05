@@ -1,5 +1,6 @@
 <?php
-  include './components/icons/table.php';
+global $TABLE_ICON, $RESET_ICON;
+include './components/icons/table.php';
   include './components/icons/reset.php';
 ?>
 
@@ -27,7 +28,6 @@
     <div class="flex py-5 justify-center items-center text-2xl">
       <b>Manage Tables</b>
     </div>
-
 
     <div class="py-5 flex justify-center items-center">
         <!-- Button for MATHIMA -->

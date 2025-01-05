@@ -11,7 +11,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:x-on="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

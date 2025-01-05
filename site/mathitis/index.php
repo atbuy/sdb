@@ -140,6 +140,11 @@ include "../components/icons/home.php";
             </thead>
             <tbody>
             <tr id="insertMathitisRow">
+                <td class="px-3 py-4 text-rose-600 font-semibold">
+                <span class="cursor-help font-semibold fill-rose-600" id="mathitisIDInfo">
+                  <?php echo $QUESTION_ICON ?>
+                </span>
+                </td>
                 <td class="px-3 py-4 text-green-400">
                     <input class="border-b-2 border-white bg-transparent" type="text" data-insert-key="full_name" />
                 </td>
@@ -183,7 +188,8 @@ include "../components/icons/home.php";
 </button>
 
 <!-- Scripts -->
-<script src="../static/js/utils.js"></script>
-<script src="../static/js/table.js"></script>
+<script src="../static/js/main.js"></script>
+<script src="../static/js/mathitis.js"></script>
+<script src="../static/js/toasts.js"></script>
 </body>
 </html>
