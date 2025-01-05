@@ -1,13 +1,13 @@
 ﻿<?php
-include "./select.php";
-include "../components/icons/edit_action.php";
-include "../components/icons/delete_action.php";
-include "../components/icons/save_action.php";
-include "../components/icons/cancel_action.php";
-include "../components/icons/add.php";
-include "../components/icons/cancel.php";
-include "../components/icons/question.php";
-include "../components/icons/home.php";
+  include "./select.php";
+  include "../components/icons/edit_action.php";
+  include "../components/icons/delete_action.php";
+  include "../components/icons/save_action.php";
+  include "../components/icons/cancel_action.php";
+  include "../components/icons/add.php";
+  include "../components/icons/cancel.php";
+  include "../components/icons/question.php";
+  include "../components/icons/home.php";
 ?>
 
 <!DOCTYPE html>
@@ -129,21 +129,22 @@ include "../components/icons/home.php";
     <div class="my-4 flex flex-col items-center" x-data="{ inserting: false, toggleInsert() { this.inserting = !this.inserting } }">
         <table x-transition class="bg-zinc-900 rounded-lg table-auto text-left shadow-lg" x-show="inserting">
             <thead>
-            <tr class="bg-zinc-950">
-                <th class="px-3 py-4">Full Name</th>
-                <th class="px-3 py-4">Age</th>
-                <th class="px-3 py-4">Class Year</th>
-                <th class="px-3 py-4">School</th>
-                <th class="px-3 py-4">Absences</th>
-                <th class="px-3 py-4">Action</th>
-            </tr>
+              <tr class="bg-zinc-950">
+                  <th class="px-3 py-4 rounded-tl-lg">ID</th>
+                  <th class="px-3 py-4">Full Name</th>
+                  <th class="px-3 py-4">Age</th>
+                  <th class="px-3 py-4">Class Year</th>
+                  <th class="px-3 py-4">School</th>
+                  <th class="px-3 py-4">Absences</th>
+                  <th class="px-3 py-4 rounded-tr-lg">Action</th>
+              </tr>
             </thead>
             <tbody>
             <tr id="insertMathitisRow">
                 <td class="px-3 py-4 text-rose-600 font-semibold">
-                <span class="cursor-help font-semibold fill-rose-600" id="mathitisIDInfo">
-                  <?php echo $QUESTION_ICON ?>
-                </span>
+                  <span class="cursor-help font-semibold fill-rose-600" id="mathitisIDInfo">
+                    <?php echo $QUESTION_ICON ?>
+                  </span>
                 </td>
                 <td class="px-3 py-4 text-green-400">
                     <input class="border-b-2 border-white bg-transparent" type="text" data-insert-key="full_name" />
@@ -183,13 +184,20 @@ include "../components/icons/home.php";
     </div>
 </div>
 
-<button class="bg-zinc-900 shadow-lg p-4 fixed left-4 bottom-4 rounded-full" onclick="goto('')">
-    <span class="fill-white"><?php echo $HOME_ICON ?></span>
-</button>
+    <button class="bg-zinc-900 shadow-lg p-4 fixed left-4 bottom-4 rounded-full" onclick="goto('')">
+        <span class="fill-white"><?php echo $HOME_ICON ?></span>
+    </button>
 
-<!-- Scripts -->
-<script src="../static/js/main.js"></script>
-<script src="../static/js/mathitis.js"></script>
-<script src="../static/js/toasts.js"></script>
+    <!-- Tippy for tooltips  -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+
+    <!-- Scripts -->
+    <script src="../static/js/main.js"></script>
+    <script src="../static/js/mathitis.js"></script>
+    <script src="../static/js/toasts.js"></script>
+
+    <!-- Toastify notifications -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 </html>

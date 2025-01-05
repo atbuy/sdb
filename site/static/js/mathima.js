@@ -20,7 +20,9 @@ const insertMathima = (elemID) => {
 
     if (request.status === 200) {
       toastSuccess("New row inserted successfully.");
-      window.location.reload();
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
       return;
     }
 

@@ -26,8 +26,5 @@ while ($row = mysqli_fetch_array($result)) {
 
 $MATHITIS_DATA = json_encode($response);
 
-header('Content-Type: application/json');
-echo $MATHITIS_DATA;
-
 $conn->close();
 ?>

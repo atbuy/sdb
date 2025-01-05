@@ -1,12 +1,15 @@
 ﻿<?php
+
 include "../connect.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $full_name = $_POST['full_name'];
-    $age = $_POST['age'];
-    $class_year = $_POST['class_year'];
-    $school = $_POST['school'];
-    $absences = $_POST['absences'];
+    $data = json_decode(file_get_contents("php://input"), true);
+
+    $full_name = $data['full_name'];
+    $age = $data['age'];
+    $class_year = $data['class_year'];
+    $school = $data['school'];
+    $absences = $data['absences'];
 
     // Input validation
     if (empty($full_name) || !is_numeric($age) || !is_numeric($class_year) || empty($school) || !is_numeric($absences)) {
