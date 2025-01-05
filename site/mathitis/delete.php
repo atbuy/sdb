@@ -16,7 +16,6 @@ $query->bind_param("i", $row_id);
 
 if ($query->execute()) {
     $query->close();
-    header("Location: index.php");
     exit();
 } else {
     $query->close();

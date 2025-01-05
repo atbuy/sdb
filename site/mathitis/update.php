@@ -21,7 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] === "PATCH") {
 
     if ($query->execute()) {
         $query->close();
-        header("Location: index.php");
         exit();
     } else {
         $query->close();
