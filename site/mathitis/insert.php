@@ -10,14 +10,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $class_year = $data['class_year'];
     $school = $data['school'];
     $absences = $data['absences'];
+    $missed_year = $data['missed_year'];
 
     // Input validation
     if (empty($full_name) || !is_numeric($age) || !is_numeric($class_year) || empty($school) || !is_numeric($absences)) {
         die("Invalid input. Please check your data.");
     }
 
-    $query = $conn->prepare("INSERT INTO MATHITIS (full_name, age, class_year, school, absences) VALUES (?, ?, ?, ?, ?)");
-    $query->bind_param("siisi", $full_name, $age, $class_year, $school, $absences);
+    $query = $conn->prepare("INSERT INTO MATHITIS (full_name, age, class_year, school, absences, missed_year) VALUES (?, ?, ?, ?, ?, ?)");
+    $query->bind_param("siisii", $full_name, $age, $class_year, $school, $absences, $missed_year);
 
     if ($query->execute()) {
         $query->close();

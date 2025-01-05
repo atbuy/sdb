@@ -65,6 +65,7 @@
               class_year INT NOT NULL,
               school VARCHAR(5) NOT NULL,
               absences INT DEFAULT 0 NOT NULL,
+              missed_year BOOLEAN DEFAULT false NOT NULL,
               FOREIGN KEY (school) REFERENCES SXOLEIO(code) ON DELETE CASCADE
             );
             CREATE TABLE MATHIMA(

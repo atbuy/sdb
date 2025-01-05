@@ -10,13 +10,14 @@ if ($_SERVER["REQUEST_METHOD"] === "PATCH") {
     $class_year = $data['class_year'];
     $school = $data['school'];
     $absences = $data['absences'];
+    $missed_year = $data['missed_year'];
 
     if (!filter_var($id, FILTER_VALIDATE_INT) || empty($full_name) || !is_numeric($age) || !is_numeric($class_year) || empty($school) || !is_numeric($absences)) {
         die("Invalid input. Please check your data.");
     }
 
-    $query = $conn->prepare("UPDATE MATHITIS SET full_name=?, age=?, class_year=?, school=?, absences=? WHERE id=?");
-    $query->bind_param("siisii", $full_name, $age, $class_year, $school, $absences, $id);
+    $query = $conn->prepare("UPDATE MATHITIS SET full_name=?, age=?, class_year=?, school=?, absences=?, missed_year=? WHERE id=?");
+    $query->bind_param("siisiii", $full_name, $age, $class_year, $school, $absences, $missed_year, $id);
 
     if ($query->execute()) {
         $query->close();
@@ -27,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] === "PATCH") {
         echo "Error updating record: " . $conn->error;
     }
 }
+
 $id = $_GET['id'];
 
 if (!filter_var($id, FILTER_VALIDATE_INT)) {

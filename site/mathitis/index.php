@@ -51,6 +51,7 @@
             <th class="px-3 py-4">Class Year</th>
             <th class="px-3 py-4">School</th>
             <th class="px-3 py-4">Absences</th>
+            <th class="px-3 py-4">Missed Year</th>
             <th class="px-3 py-4 rounded-tr-lg">Action</th>
         </tr>
         </thead>
@@ -109,6 +110,16 @@
                     />
                     <span x-show="!editing" x-text="row.absences" data-mathitis-value-key="absences"></span>
                 </td>
+                <td class="px-3 py-4 text-blue-400">
+                    <input
+                            class="border-b-2 border-white bg-transparent"
+                            :value="row.missed_year"
+                            x-show="editing"
+                            :data-mathitis-input="row.id"
+                            data-mathitis-input-key="missed_year"
+                    />
+                    <span x-show="!editing" x-text="row.missed_year" data-mathitis-value-key="missed_year"></span>
+                </td>
                 <td class="px-3 py-4 flex justify-around items-center" x-show="!editing">
                     <div>
                         <button class="action-button update" x-on:click="toggleEdit()">
@@ -154,6 +165,7 @@
                   <th class="px-3 py-4">Class Year</th>
                   <th class="px-3 py-4">School</th>
                   <th class="px-3 py-4">Absences</th>
+                  <th class="px-3 py-4">Missed Year</th>
                   <th class="px-3 py-4 rounded-tr-lg">Action</th>
               </tr>
             </thead>
@@ -178,6 +190,9 @@
                 </td>
                 <td class="px-3 py-4 text-blue-400">
                     <input class="border-b-2 border-white bg-transparent" type="number" data-insert-key="absences" />
+                </td>
+                <td class="px-3 py-4 text-blue-400">
+                    <input class="border-b-2 border-white bg-transparent" type="number" data-insert-key="missed_year" />
                 </td>
                 <td class="px-3 py-4 flex justify-center items-center">
                     <button class="p-1 bg-green-500 rounded-md fill-white" onclick="insertMathitis('insertMathitisRow')">
