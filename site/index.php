@@ -28,10 +28,17 @@
       <b>Manage Tables</b>
     </div>
 
+
     <div class="py-5 flex justify-center items-center">
+        <!-- Button for MATHIMA -->
         <button class="flex justify-center items-center px-6 py-4 mx-6 shadow-lg rounded-lg bg-zinc-900 hover:scale-110 transition-transform" onclick="goto('mathima')">
           <span class="mr-3 fill-white"><?php echo $TABLE_ICON ?></span>
           <span class="mx-2 font-bold">MATHIMA</span>
+        </button>
+        <!-- Button for MATHITIS -->
+        <button class="flex justify-center items-center px-6 py-4 mx-6 shadow-lg rounded-lg bg-zinc-900 hover:scale-110 transition-transform" onclick="goto('mathitis')">
+            <span class="mr-3 fill-white"><?php echo $TABLE_ICON ?></span>
+            <span class="mx-2 font-bold">MATHITIS</span>
         </button>
     </div>
 
