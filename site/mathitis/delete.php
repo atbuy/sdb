@@ -1,25 +1,25 @@
 ﻿<?php
 include "../connect.php";
 
-if (isset($_GET['id'])) {
-    $id = intval($_GET['id']);
+// Only allow DELETE requests
+if ($_SERVER["REQUEST_METHOD"] != "DELETE") {
+    http_response_code(405);
+    exit();
+}
 
-    if (!filter_var($id, FILTER_VALIDATE_INT)) {
-        die("Invalid ID.");
-    }
+$data = json_decode(file_get_contents("php://input"), true);
 
-    $query = $conn->prepare("DELETE FROM MATHITIS WHERE id = ?");
-    $query->bind_param("i", $id);
+$row_id = $data["id"];
 
-    if ($query->execute()) {
-        $query->close();
-        header("Location: index.php");
-        exit();
-    } else {
-        $query->close();
-        echo "Error deleting record: " . $conn->error;
-    }
+$query = $conn->prepare("DELETE FROM MATHITIS WHERE id = ?");
+$query->bind_param("i", $row_id);
+
+if ($query->execute()) {
+    $query->close();
+    header("Location: index.php");
+    exit();
 } else {
-    echo "Invalid request.";
+    $query->close();
+    echo "Error deleting record: " . $conn->error;
 }
 ?>

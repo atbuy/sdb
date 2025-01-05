@@ -1,13 +1,15 @@
 ﻿<?php
 include "../connect.php";
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $id = $_POST['id'];
-    $full_name = $_POST['full_name'];
-    $age = $_POST['age'];
-    $class_year = $_POST['class_year'];
-    $school = $_POST['school'];
-    $absences = $_POST['absences'];
+if ($_SERVER["REQUEST_METHOD"] === "PATCH") {
+    $data = json_decode(file_get_contents("php://input"), true);
+
+    $id = $data['id'];
+    $full_name = $data['full_name'];
+    $age = $data['age'];
+    $class_year = $data['class_year'];
+    $school = $data['school'];
+    $absences = $data['absences'];
 
     if (!filter_var($id, FILTER_VALIDATE_INT) || empty($full_name) || !is_numeric($age) || !is_numeric($class_year) || empty($school) || !is_numeric($absences)) {
         die("Invalid input. Please check your data.");

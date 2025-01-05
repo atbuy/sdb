@@ -89,8 +89,26 @@
                     />
                     <span x-show="!editing" x-text="row.class_year" data-mathitis-value-key="class_year"></span>
                 </td>
-                <td class="px-3 py-4 text-blue-400" x-text="row.school"></td>
-                <td class="px-3 py-4 text-blue-400" x-text="row.absences"></td>
+                <td class="px-3 py-4 text-blue-400">
+                    <input
+                            class="border-b-2 border-white bg-transparent"
+                            :value="row.school"
+                            x-show="editing"
+                            :data-mathitis-input="row.id"
+                            data-mathitis-input-key="school"
+                    />
+                    <span x-show="!editing" x-text="row.school" data-mathitis-value-key="school"></span>
+                </td>
+                <td class="px-3 py-4 text-blue-400">
+                    <input
+                            class="border-b-2 border-white bg-transparent"
+                            :value="row.absences"
+                            x-show="editing"
+                            :data-mathitis-input="row.id"
+                            data-mathitis-input-key="absences"
+                    />
+                    <span x-show="!editing" x-text="row.absences" data-mathitis-value-key="absences"></span>
+                </td>
                 <td class="px-3 py-4 flex justify-around items-center" x-show="!editing">
                     <div>
                         <button class="action-button update" x-on:click="toggleEdit()">
