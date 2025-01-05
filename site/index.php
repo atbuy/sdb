@@ -23,7 +23,7 @@ include './components/icons/table.php';
     <title>Team 19 - DB2</title>
   </head>
 
-  <body>
+  <body id="body">
 
     <div class="flex py-5 justify-center items-center text-2xl">
       <b>Manage Tables</b>

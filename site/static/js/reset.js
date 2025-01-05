@@ -4,10 +4,14 @@ const resetDatabase = () => {
 
   const request = new XMLHttpRequest();
 
+  const body = document.getElementById("body");
+  body.classList.add("cursor-wait");
+
   request.onreadystatechange = () => {
     if (request.readyState !== XMLHttpRequest.DONE) return;
 
     const response = JSON.parse(request.response);
+    body.classList.remove("cursor-wait");
 
     if (request.status === 200) {
       toastSuccess(response["message"]);
