@@ -40,6 +40,11 @@ include './components/icons/table.php';
             <span class="mr-3 fill-white"><?php echo $TABLE_ICON ?></span>
             <span class="mx-2 font-bold">MATHITIS</span>
         </button>
+        <!-- Button for EXETASH -->
+        <button class="flex justify-center items-center px-6 py-4 mx-6 shadow-lg rounded-lg bg-zinc-900 hover:scale-110 transition-transform" onclick="goto('exetash')">
+            <span class="mr-3 fill-white"><?php echo $TABLE_ICON ?></span>
+            <span class="mx-2 font-bold">EXETASH</span>
+        </button>
     </div>
 
     <button id="resetInfo" class="fixed p-4 left-4 bottom-4 fill-red-600" onclick="resetToast()">
