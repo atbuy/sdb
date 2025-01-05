@@ -1,9 +1,7 @@
-const insertMathima = (elemID) => {
-  // Get input tags from insert row
+﻿const insertMathitis = (elemID) => {
   const row = document.getElementById(elemID);
   const inputs = row.getElementsByTagName("input");
 
-  // Format JSON data
   let data = {};
   for (let elem of inputs) {
     data[elem.dataset.insertKey] = elem.value;
@@ -11,10 +9,7 @@ const insertMathima = (elemID) => {
 
   const payload = JSON.stringify(data);
 
-  // Start new AJAX request
   const request = new XMLHttpRequest();
-
-  // Refresh page when a new row is successfully inserted
   request.onreadystatechange = () => {
     if (request.readyState !== XMLHttpRequest.DONE) return;
 
@@ -34,46 +29,37 @@ const insertMathima = (elemID) => {
     toastError("Something went wrong.");
   };
 
-  // Get the endpoint we need to request based on the environment
   const base = getBasePath();
-  const endpoint = `${base}mathima/insert.php`;
+  const endpoint = `${base}mathitis/insert.php`;
 
-  // Set options and send request to update.php
   request.open("POST", endpoint, true);
   request.setRequestHeader("Content-Type", "application/json");
   request.send(payload);
 };
 
-const editMathima = (elem) => {
+const editMathitis = (elem) => {
   const rowID = parseInt(elem.dataset.rowid);
-  const inputs = document.querySelectorAll(`[data-mathima-input="${rowID}"]`);
+  const inputs = document.querySelectorAll(`[data-mathitis-input="${rowID}"]`);
 
   let data = { id: rowID };
-
   inputs.forEach((input) => {
-    const key = input.dataset.mathimaInputKey;
+    const key = input.dataset.mathitisInputKey;
     data[key] = input.value;
   });
 
   const payload = JSON.stringify(data);
 
-  // Start new AJAX request
   const request = new XMLHttpRequest();
-
-  // Handle cases to update row depending on response status
   request.onreadystatechange = () => {
     if (request.readyState !== XMLHttpRequest.DONE) return;
 
     if (request.status === 200) {
       toastSuccess("Data updated successfully.");
 
-      // Since the request was successful, we need to update
-      // the row data in the `span`s, so that the user does not
-      // need to refresh the page after each save
       inputs.forEach((input) => {
-        const key = input.dataset.mathimaInputKey;
+        const key = input.dataset.mathitisInputKey;
         const elem = document.querySelector(
-          `[data-mathima-value-key="${key}"]`,
+          `[data-mathitis-value-key="${key}"]`,
         );
 
         if (!elem) return;
@@ -92,35 +78,27 @@ const editMathima = (elem) => {
     toastError("Something went wrong.");
   };
 
-  // Get the endpoint we need to request based on the environment
   const base = getBasePath();
-  const endpoint = `${base}mathima/update.php`;
+  const endpoint = `${base}mathitis/update.php`;
 
-  // Set options and send request to update.php
   request.open("PATCH", endpoint, true);
   request.setRequestHeader("Content-Type", "application/json");
   request.send(payload);
 };
 
-const deleteMathima = (elem) => {
+const deleteMathitis = (elem) => {
   const rowID = parseInt(elem.dataset.rowid);
   const data = { id: rowID };
   const payload = JSON.stringify(data);
 
-  // Start new AJAX request
   const request = new XMLHttpRequest();
-
-  // Handle cases to update row depending on response status
   request.onreadystatechange = () => {
     if (request.readyState !== XMLHttpRequest.DONE) return;
 
     if (request.status === 200) {
       toastSuccess("Row deleted successfully.");
-
-      // Response was successful so we need to delete the row clicked
-      const row = document.querySelector(`tr[data-mathima-row="${rowID}"]`);
+      const row = document.querySelector(`tr[data-mathitis-row="${rowID}"]`);
       row.remove();
-
       return;
     }
 
@@ -132,17 +110,16 @@ const deleteMathima = (elem) => {
     toastError("Something went wrong.");
   };
 
-  // Get the endpoint we need to request based on the environment
   const base = getBasePath();
-  const endpoint = `${base}mathima/delete.php`;
+  const endpoint = `${base}mathitis/delete.php`;
 
-  // Set options and send request to update.php
   request.open("DELETE", endpoint, true);
   request.setRequestHeader("Content-Type", "application/json");
   request.send(payload);
 };
 
-tippy("#mathimaIDInfo", {
+// Tooltips for MATHITIS
+tippy("#mathitisIDInfo", {
   content: "The row's ID will be<br>generated automatically",
   placement: "bottom",
   animation: "fade",
@@ -150,7 +127,7 @@ tippy("#mathimaIDInfo", {
   allowHTML: true,
 });
 
-tippy("#insertMathimaButtonInfo", {
+tippy("#insertMathitisButtonInfo", {
   content: "Insert row",
   placement: "bottom",
   animation: "fade",
