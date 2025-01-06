@@ -107,9 +107,9 @@ $errorMessage = isset($_GET['error']) ? $_GET['error'] : '';
     <?php endif; ?>
 
     <form method="POST" action="action.php" class="text-black" style="margin-top: 5px;">
-      <input type="text" name="student" placeholder="Student" required class='placeholder-gray-600' />
-      <input type="text" name="lesson" placeholder="Lesson" required class='placeholder-gray-600'  />
-      <input type="text" name="grade" placeholder="Grade" required class='placeholder-gray-600'  />
+      <input type="number" name="student" placeholder="Student" required class='placeholder-gray-600' />
+      <input type="number" name="lesson" placeholder="Lesson" required class='placeholder-gray-600'  />
+      <input type="number" name="grade" placeholder="Grade" required class='placeholder-gray-600' min="0" max="100"/>
       <button type="submit" class="insert-button">Insert Row</button>
     </form>
   </main>

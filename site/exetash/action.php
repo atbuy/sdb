@@ -57,7 +57,7 @@ try {
             $grade = $_POST['grade'];
 
             // Validate input
-            if (!empty($student) && !empty($lesson) && !empty($grade)) {
+            if (is_numeric($student) && is_numeric($lesson) && is_numeric($grade) && $grade >= 0 && $grade <= 100) {
                 // Insert query
                 $insert_query = "INSERT INTO EXETASH (student, lesson, grade) VALUES (?, ?, ?)";
                 $stmt = mysqli_prepare($conn, $insert_query);
