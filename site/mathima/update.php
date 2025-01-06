@@ -12,18 +12,13 @@
   $data = json_decode(file_get_contents("php://input"), true);
 
   // Unpack data from JSON body
-  $row_id = $data["id"];
-  $row_name = $data["name"];
-  $row_active_year = $data["active_year"];
+  $id = $data["id"];
+  $name = $data["name"];
+  $active_year = $data["active_year"];
 
   // Update the given MATHIMA row with the new values
   $query = $conn->prepare("UPDATE MATHIMA SET name=?, active_year=? WHERE id=?");
-  $query->bind_param(
-    "sii",
-    $row_name,
-    $row_active_year,
-    $row_id
-  );
+  $query->bind_param("sii", $name, $active_year, $id);
   $query->execute();
   $query->close();
 ?>
